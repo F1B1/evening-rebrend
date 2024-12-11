@@ -862,6 +862,7 @@ body{
         gap: 8px;
         overflow: auto;
         scrollbar-width: none;
+        width: 100%;
         button{
             font-weight: 500;
         }
@@ -1074,6 +1075,10 @@ body{
         border-radius: 20px;
         overflow: hidden;
         gap: 34px;
+        @include small-tablet(){
+            flex-direction: column;
+            padding: 20px;
+        }
     }
 
     &__image {
@@ -1085,6 +1090,12 @@ body{
             height: 100%;
             object-fit: cover;
         }
+        @include small-tablet(){
+            max-width: 100%;
+            aspect-ratio: 320 / 160;
+            max-height: 400px;
+            height: 100%;
+        }
     }
 
     &__item {
@@ -1094,6 +1105,9 @@ body{
         gap: 18px;
         position: relative;
         width: 100%;
+        @include small-tablet(){
+            margin: 0;
+        }
     }
 
     &__caption {
@@ -1103,6 +1117,7 @@ body{
     &__text {
         max-width: 560px;
         color: var(--text-gray);
+        font-size:  #{fluid(14px, 20px, 375px, 1600px)};
     }
 
     &__action {
@@ -1115,9 +1130,16 @@ body{
         display: flex;
         align-items:center;
         gap: 20px;
+        @include small-tablet(){
+            gap: 8px;
+        }
     }
 
     &__stars {
+        img{
+            width: #{fluid(12px, 24px, 375px, 1600px)};
+            height: #{fluid(12px, 24px, 375px, 1600px)};
+        }
     }
 
     &__comment {
@@ -1126,6 +1148,8 @@ body{
         color: var(--text-gray);
         img{
             margin-right: 4px;
+            width: #{fluid(12px, 24px, 375px, 1600px)};
+            height: #{fluid(12px, 24px, 375px, 1600px)};
         }
     }
 
@@ -1142,12 +1166,18 @@ body{
         padding: 16px;
         border-radius: 10px;
         font-weight: 700;
-        font-size: #{fluid(16px, 20px, 375px, 1600px)};
+        font-size: #{fluid(14px, 20px, 375px, 1600px)};
         &.subscribe{
             background-color: var(--text-gray-2);
+            @include tablet(){
+                display: none;
+            }
         }
         &.read{
             background-color: var(--bg-orange);
+        }
+        @include small-tablet(){
+            padding: 12px;
         }
     }
 

@@ -776,6 +776,7 @@ body::before {
   gap: 8px;
   overflow: auto;
   scrollbar-width: none;
+  width: 100%;
 }
 .primary__controls button {
   font-weight: 500;
@@ -983,6 +984,12 @@ body::before {
   overflow: hidden;
   gap: 34px;
 }
+@media (max-width: 768px) {
+  .news__column {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
 .news__image {
   max-width: 240px;
   overflow: hidden;
@@ -994,6 +1001,14 @@ body::before {
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media (max-width: 768px) {
+  .news__image {
+    max-width: 100%;
+    aspect-ratio: 320/160;
+    max-height: 400px;
+    height: 100%;
+  }
+}
 .news__item {
   margin: 34px 12px 34px 0;
   display: flex;
@@ -1002,12 +1017,18 @@ body::before {
   position: relative;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .news__item {
+    margin: 0;
+  }
+}
 .news__caption {
   font-size: clamp(1.25rem, 0.8163265306vw + 1.0586734694rem, 1.875rem);
 }
 .news__text {
   max-width: 560px;
   color: var(--text-gray);
+  font-size: clamp(0.875rem, 0.4897959184vw + 0.7602040816rem, 1.25rem);
 }
 .news__action {
   display: flex;
@@ -1019,6 +1040,15 @@ body::before {
   align-items: center;
   gap: 20px;
 }
+@media (max-width: 768px) {
+  .news__info {
+    gap: 8px;
+  }
+}
+.news__stars img {
+  width: clamp(0.75rem, 0.9795918367vw + 0.5204081633rem, 1.5rem);
+  height: clamp(0.75rem, 0.9795918367vw + 0.5204081633rem, 1.5rem);
+}
 .news__comment {
   display: flex;
   align-items: center;
@@ -1026,6 +1056,8 @@ body::before {
 }
 .news__comment img {
   margin-right: 4px;
+  width: clamp(0.75rem, 0.9795918367vw + 0.5204081633rem, 1.5rem);
+  height: clamp(0.75rem, 0.9795918367vw + 0.5204081633rem, 1.5rem);
 }
 .news__buttons {
   display: flex;
@@ -1039,13 +1071,23 @@ body::before {
   padding: 16px;
   border-radius: 10px;
   font-weight: 700;
-  font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
+  font-size: clamp(0.875rem, 0.4897959184vw + 0.7602040816rem, 1.25rem);
 }
 .news__button.subscribe {
   background-color: var(--text-gray-2);
 }
+@media (max-width: 1024px) {
+  .news__button.subscribe {
+    display: none;
+  }
+}
 .news__button.read {
   background-color: var(--bg-orange);
+}
+@media (max-width: 768px) {
+  .news__button {
+    padding: 12px;
+  }
 }
 .news__more {
   display: flex;
