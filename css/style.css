@@ -350,8 +350,8 @@ template {
   --text-main: rgba(18, 18, 18, 1);
   --text-secondary: rgba(255, 255, 255, 1);
   --text-gray: rgba(121, 121, 121, 1);
-  --text-gray: rgba(206, 206, 206, 1);
-  --text-gray-l: rgba(238, 238, 238, 1);
+  --text-gray-2: rgba(206, 206, 206, 1);
+  --text-gray-3: rgba(238, 238, 238, 1);
   --bg-orange: rgba(255, 150, 44, 1);
   --bg-orange-20: rgba(255, 150, 44, 0.2);
   --bg-green: rgba(84, 237, 57, 1);
@@ -686,7 +686,7 @@ body::before {
   margin: 0px 16px 0px 0px;
   filter: brightness(0) invert(1);
 }
-.header__item:hover {
+.header__item:hover, .header__item.active {
   background-color: var(--bg-orange);
 }
 .header__item:last-child {
@@ -746,43 +746,52 @@ body::before {
   }
 }
 
-.service {
+.primary {
   padding-top: 78px;
+  padding-bottom: clamp(1rem, 10.1224489796vw + -1.3724489796rem, 8.75rem);
 }
 @media (max-width: 768px) {
-  .service {
+  .primary {
     padding-top: 24px;
   }
 }
-.service__header {
+.primary__body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--text-secondary);
 }
-.service__text {
+.primary__text {
   font-weight: 400;
   font-size: clamp(1.875rem, 1.6326530612vw + 1.4923469388rem, 3.125rem);
 }
-.service__title {
+.primary__title {
   font-weight: 700;
   font-size: clamp(3.75rem, 6.8571428571vw + 2.1428571429rem, 9rem);
   margin-bottom: clamp(2rem, 2.2857142857vw + 1.4642857143rem, 3.75rem);
 }
-.service__buttons {
+.primary__controls {
+  display: flex;
+  gap: 8px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.primary__controls button {
+  font-weight: 500;
+}
+.primary__buttons {
   display: flex;
   gap: clamp(0.5rem, 0.6530612245vw + 0.3469387755rem, 1rem);
-  margin-bottom: clamp(1rem, 10.1224489796vw + -1.3724489796rem, 8.75rem);
   position: relative;
 }
 @media (max-width: 576px) {
-  .service__buttons {
+  .primary__buttons {
     flex-direction: column;
     width: 100%;
   }
 }
-.service__button {
+.primary__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -795,27 +804,28 @@ body::before {
   background-color: var(--bg-orange-20);
   transition: all 0.3s ease 0s;
 }
-.service__button img {
+.primary__button img {
   width: 30px;
   height: 30px;
   margin-right: 16px;
 }
-.service__button:hover {
+.primary__button:hover {
   background-color: var(--bg-orange);
   border-color: transparent;
 }
 @media (max-width: 768px) {
-  .service__button img {
+  .primary__button img {
     width: 20px;
     height: 20px;
     margin-right: 8px;
   }
 }
 @media (max-width: 576px) {
-  .service__button {
+  .primary__button {
     width: 100%;
   }
 }
+
 .service__columns {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -959,4 +969,95 @@ body::before {
   .city__buttons {
     max-height: 150px;
   }
+}
+
+.news__columns {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.news__column {
+  background-color: var(--text-secondary);
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 34px;
+}
+.news__image {
+  max-width: 240px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.news__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news__item {
+  margin: 34px 12px 34px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  width: 100%;
+}
+.news__caption {
+  font-size: clamp(1.25rem, 0.8163265306vw + 1.0586734694rem, 1.875rem);
+}
+.news__text {
+  max-width: 560px;
+  color: var(--text-gray);
+}
+.news__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news__info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.news__comment {
+  display: flex;
+  align-items: center;
+  color: var(--text-gray);
+}
+.news__comment img {
+  margin-right: 4px;
+}
+.news__buttons {
+  display: flex;
+  gap: 12px;
+}
+.news__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+  padding: 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
+}
+.news__button.subscribe {
+  background-color: var(--text-gray-2);
+}
+.news__button.read {
+  background-color: var(--bg-orange);
+}
+.news__more {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.news__more .dot {
+  width: 3px;
+  height: 3px;
+  background-color: var(--text-main);
+  border-radius: 50%;
 }

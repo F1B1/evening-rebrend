@@ -442,8 +442,8 @@ template {
     --text-main: rgba(18, 18, 18, 1);
     --text-secondary: rgba(255, 255, 255, 1);
     --text-gray: rgba(121, 121, 121, 1);
-    --text-gray: rgba(206, 206, 206, 1);
-    --text-gray-l: rgba(238, 238, 238, 1);
+    --text-gray-2: rgba(206, 206, 206, 1);
+    --text-gray-3: rgba(238, 238, 238, 1);
     --bg-orange: rgba(255, 150, 44, 1);
     --bg-orange-20: rgba(255, 150, 44, 0.2);
     --bg-green: rgba(84, 237, 57, 1);
@@ -773,7 +773,7 @@ body{
             margin: 0px 16px 0px 0px;
             filter: brightness(0) invert(1);
         }
-        &:hover{
+        &:hover, &.active{
             background-color: var(--bg-orange);
         }
         &:last-child{
@@ -832,15 +832,13 @@ body{
     }
 }
 
-.service {
+.primary{
     padding-top: 78px;
+    padding-bottom: #{fluid(16px, 140px, 375px, 1600px)};
     @include small-tablet(){
         padding-top: 24px;
     }
-    &__container {
-    }
-
-    &__header {
+    &__body {
         display: flex;
         flex-direction: column;
         justify-content:center;
@@ -859,10 +857,19 @@ body{
         margin-bottom: #{fluid(32px, 60px, 375px, 1600px)};
     }
 
+    &__controls{
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        scrollbar-width: none;
+        button{
+            font-weight: 500;
+        }
+    }
+
     &__buttons {
         display: flex;
         gap: #{fluid(8px, 16px, 375px, 1600px)};
-        margin-bottom: #{fluid(16px, 140px, 375px, 1600px)};
         position: relative;
         @include mobile(){
             flex-direction: column;
@@ -881,7 +888,7 @@ body{
         padding: 0 #{fluid(20px, 52px, 375px, 1600px)};
         border: 2px solid var(--i-borders-black);
         background-color: var(--bg-orange-20);
-        transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s; 
         img{
             width: 30px;
             height: 30px;
@@ -901,6 +908,11 @@ body{
         @include mobile(){
             width: 100%;
         }
+    }
+}
+
+.service {
+    &__container {
     }
 
     &__columns {
@@ -1045,3 +1057,112 @@ body{
     }
 }
 
+.news {
+
+    &__container {
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &__column {
+        background-color: var(--text-secondary);
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden;
+        gap: 34px;
+    }
+
+    &__image {
+        max-width: 240px;
+        overflow: hidden;
+        border-radius: 20px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__item {
+        margin: 34px 12px 34px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        position: relative;
+        width: 100%;
+    }
+
+    &__caption {
+        font-size: #{fluid(20px, 30px, 375px, 1600px)};
+    }
+
+    &__text {
+        max-width: 560px;
+        color: var(--text-gray);
+    }
+
+    &__action {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+
+    &__info{
+        display: flex;
+        align-items:center;
+        gap: 20px;
+    }
+
+    &__stars {
+    }
+
+    &__comment {
+        display: flex;
+        align-items:center;
+        color: var(--text-gray);
+        img{
+            margin-right: 4px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        color: var(--text-secondary);
+        padding: 16px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: #{fluid(16px, 20px, 375px, 1600px)};
+        &.subscribe{
+            background-color: var(--text-gray-2);
+        }
+        &.read{
+            background-color: var(--bg-orange);
+        }
+    }
+
+    &__more{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        .dot{
+            width: 3px;
+            height: 3px;
+            background-color: var(--text-main);
+            border-radius: 50%;
+        }
+    }
+}
