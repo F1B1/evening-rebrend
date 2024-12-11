@@ -773,7 +773,7 @@ body{
             margin: 0px 16px 0px 0px;
             filter: brightness(0) invert(1);
         }
-        &:hover{
+        &:hover, &.active{
             background-color: var(--bg-orange);
         }
         &:last-child{
@@ -832,15 +832,13 @@ body{
     }
 }
 
-.service {
+.primary{
     padding-top: 78px;
+    padding-bottom: #{fluid(16px, 140px, 375px, 1600px)};
     @include small-tablet(){
         padding-top: 24px;
     }
-    &__container {
-    }
-
-    &__header {
+    &__body {
         display: flex;
         flex-direction: column;
         justify-content:center;
@@ -859,10 +857,20 @@ body{
         margin-bottom: #{fluid(32px, 60px, 375px, 1600px)};
     }
 
+    &__controls{
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        scrollbar-width: none;
+        button{
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+    }
+
     &__buttons {
         display: flex;
         gap: #{fluid(8px, 16px, 375px, 1600px)};
-        margin-bottom: #{fluid(16px, 140px, 375px, 1600px)};
         position: relative;
         @include mobile(){
             flex-direction: column;
@@ -881,7 +889,7 @@ body{
         padding: 0 #{fluid(20px, 52px, 375px, 1600px)};
         border: 2px solid var(--i-borders-black);
         background-color: var(--bg-orange-20);
-        transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s; 
         img{
             width: 30px;
             height: 30px;
@@ -901,6 +909,11 @@ body{
         @include mobile(){
             width: 100%;
         }
+    }
+}
+
+.service {
+    &__container {
     }
 
     &__columns {
