@@ -442,8 +442,8 @@ template {
     --text-main: rgba(18, 18, 18, 1);
     --text-secondary: rgba(255, 255, 255, 1);
     --text-gray: rgba(121, 121, 121, 1);
-    --text-gray: rgba(206, 206, 206, 1);
-    --text-gray-l: rgba(238, 238, 238, 1);
+    --text-gray-2: rgba(206, 206, 206, 1);
+    --text-gray-3: rgba(238, 238, 238, 1);
     --bg-orange: rgba(255, 150, 44, 1);
     --bg-orange-20: rgba(255, 150, 44, 0.2);
     --bg-green: rgba(84, 237, 57, 1);
@@ -832,12 +832,15 @@ body{
     }
 }
 
+
 .primary{
     padding-top: 78px;
+    padding-bottom: #{fluid(16px, 140px, 375px, 1600px)};
     padding-bottom: #{fluid(16px, 140px, 375px, 1600px)};
     @include small-tablet(){
         padding-top: 24px;
     }
+    &__body {
     &__body {
         display: flex;
         flex-direction: column;
@@ -855,6 +858,16 @@ body{
         font-weight: 700;
         font-size: #{fluid(60px, 144px, 375px, 1600px)};
         margin-bottom: #{fluid(32px, 60px, 375px, 1600px)};
+    }
+
+    &__controls{
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        scrollbar-width: none;
+        button{
+            font-weight: 500;
+        }
     }
 
     &__controls{
@@ -890,6 +903,7 @@ body{
         border: 2px solid var(--i-borders-black);
         background-color: var(--bg-orange-20);
         transition: all 0.3s ease 0s; 
+        transition: all 0.3s ease 0s; 
         img{
             width: 30px;
             height: 30px;
@@ -908,6 +922,12 @@ body{
         }
         @include mobile(){
             width: 100%;
+        }
+    }
+}
+
+.service {
+    &__container {
         }
     }
 }
@@ -1058,3 +1078,141 @@ body{
     }
 }
 
+.news {
+
+    &__container {
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &__column {
+        background-color: var(--text-secondary);
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden;
+        gap: 34px;
+        @include small-tablet(){
+            flex-direction: column;
+            padding: 20px;
+        }
+    }
+
+    &__image {
+        max-width: 240px;
+        overflow: hidden;
+        border-radius: 20px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @include small-tablet(){
+            max-width: 100%;
+            aspect-ratio: 320 / 160;
+            max-height: 400px;
+            height: 100%;
+        }
+    }
+
+    &__item {
+        margin: 34px 12px 34px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        position: relative;
+        width: 100%;
+        @include small-tablet(){
+            margin: 0;
+        }
+    }
+
+    &__caption {
+        font-size: #{fluid(20px, 30px, 375px, 1600px)};
+    }
+
+    &__text {
+        max-width: 560px;
+        color: var(--text-gray);
+        font-size:  #{fluid(14px, 20px, 375px, 1600px)};
+    }
+
+    &__action {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+
+    &__info{
+        display: flex;
+        align-items:center;
+        gap: 20px;
+        @include small-tablet(){
+            gap: 8px;
+        }
+    }
+
+    &__stars {
+        img{
+            width: #{fluid(12px, 24px, 375px, 1600px)};
+            height: #{fluid(12px, 24px, 375px, 1600px)};
+        }
+    }
+
+    &__comment {
+        display: flex;
+        align-items:center;
+        color: var(--text-gray);
+        img{
+            margin-right: 4px;
+            width: #{fluid(12px, 24px, 375px, 1600px)};
+            height: #{fluid(12px, 24px, 375px, 1600px)};
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        color: var(--text-secondary);
+        padding: 16px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: #{fluid(14px, 20px, 375px, 1600px)};
+        &.subscribe{
+            background-color: var(--text-gray-2);
+            @include tablet(){
+                display: none;
+            }
+        }
+        &.read{
+            background-color: var(--bg-orange);
+        }
+        @include small-tablet(){
+            padding: 12px;
+        }
+    }
+
+    &__more{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        .dot{
+            width: 3px;
+            height: 3px;
+            background-color: var(--text-main);
+            border-radius: 50%;
+        }
+    }
+}
