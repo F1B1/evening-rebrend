@@ -1,6 +1,14 @@
 export const allSwiper = ()=>{
     const smallTablet = matchMedia('(max-width: 768px)');
 
+
+    const scrollSwiper = new Swiper('.primary__controls',{
+        slidesPerView: 'auto',
+        freeMode: true,
+        spaceBetween: 8,
+    })
+
+
     let serviceSwiper = null
 
     const startResizeFunc = ()=>{

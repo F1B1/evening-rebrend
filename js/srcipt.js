@@ -1,4 +1,4 @@
-import {allSwiper} from './swiper.js';
+import { allSwiper } from './swiper.js';
 import { city } from './city.js';
 
 
