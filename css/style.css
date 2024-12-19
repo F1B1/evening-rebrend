@@ -592,6 +592,17 @@ svg {
   }
 }
 
+.caption {
+  font-size: clamp(1.875rem, 1.6326530612vw + 1.4923469388rem, 3.125rem);
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .caption {
+    margin-bottom: 16px;
+  }
+}
+
 body {
   background-image: url("../img/bg01.webp");
   background-size: cover;
@@ -1276,12 +1287,6 @@ body::before {
     display: none;
   }
 }
-.news-page__caption {
-  font-size: clamp(1.875rem, 1.6326530612vw + 1.4923469388rem, 3.125rem);
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-}
-
 .page-back {
   background-color: var(--bg-orange);
   color: var(--text-secondary);
@@ -1430,5 +1435,151 @@ body::before {
 @media (max-width: 768px) {
   .estate .news__button {
     display: none;
+  }
+}
+
+.estate-page__wrapper {
+  background-color: var(--text-secondary);
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid var(--text-main);
+  margin-bottom: clamp(2rem, 6.5306122449vw + 0.4693877551rem, 7rem);
+}
+@media (max-width: 768px) {
+  .estate-page__wrapper {
+    padding: 20px;
+  }
+}
+.estate-page__scores {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.estate-page__score {
+  color: var(--text-secondary);
+  padding: 16px;
+  font-weight: 700;
+  font-size: clamp(1rem, 0.6530612245vw + 0.8469387755rem, 1.5rem);
+  background-color: var(--bg-orange);
+  border-radius: 10px;
+}
+.estate-page__reviews {
+  font-size: clamp(0.875rem, 0.8163265306vw + 0.6836734694rem, 1.5rem);
+  color: var(--bg-orange);
+}
+.estate-page__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: clamp(2rem, 1.7959183673vw + 1.5790816327rem, 3.375rem);
+}
+.estate-page__name {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .estate-page__name {
+    margin-bottom: 24px;
+  }
+}
+.estate-page__action {
+  display: flex;
+  gap: 6px;
+}
+.estate-page__button {
+  padding: 9px;
+  border: 1px solid var(--bg-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--bg-orange);
+  font-weight: 700;
+  font-size: clamp(0.625rem, 0.1632653061vw + 0.5867346939rem, 0.75rem);
+  gap: 6px;
+}
+@media (max-width: 768px) {
+  .estate-page__button img {
+    width: 14px;
+  }
+}
+.estate-page__price {
+  color: var(--text-secondary);
+  padding: clamp(0.625rem, 0.4897959184vw + 0.5102040816rem, 1rem);
+  font-weight: 700;
+  font-size: clamp(1.125rem, 0.4897959184vw + 1.0102040816rem, 1.5rem);
+  background-color: var(--bg-orange);
+  border-radius: 10px;
+  text-wrap: nowrap;
+}
+.estate-page__item:not(:last-child) {
+  margin-bottom: clamp(2rem, 1.7959183673vw + 1.5790816327rem, 3.375rem);
+}
+.estate-page__caption {
+  font-size: clamp(1.25rem, 0.8163265306vw + 1.0586734694rem, 1.875rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.estate-page__list {
+  -moz-column-count: 2;
+       column-count: 2;
+}
+.estate-page__list li {
+  color: #AFAFAF;
+}
+.estate-page__list li:not(:last-child) {
+  margin-bottom: 14px;
+}
+.estate-page__list li span {
+  color: var(--text-main);
+  font-weight: 700;
+}
+@media (max-width: 576px) {
+  .estate-page__list {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
+.estate-page__list-check {
+  -moz-column-count: 1;
+       column-count: 1;
+}
+.estate-page__list-check li {
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.estate-page__list-check li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.estate-page__address {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.estate-page__place {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.estate-page__open {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
+  font-weight: 600;
+  color: var(--bg-orange);
+}
+@media (max-width: 768px) {
+  .estate-page__open img {
+    width: 20px;
   }
 }
