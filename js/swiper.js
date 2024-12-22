@@ -8,6 +8,20 @@ export const allSwiper = ()=>{
         spaceBetween: 8,
     })
 
+    const estateSwiper2 = new Swiper(".estate-page__swiper-2", {
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        watchSlidesProgress: true,
+      });
+
+    const estateSwiper = new Swiper('.estate-page__swiper-1',{
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        thumbs: {
+            swiper: estateSwiper2,
+        },
+    })
+
 
     let serviceSwiper = null
 

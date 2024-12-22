@@ -448,6 +448,7 @@ template {
     --bg-orange-20: rgba(255, 150, 44, 0.2);
     --bg-green: rgba(84, 237, 57, 1);
     --bg-gray: rgba(238, 238, 238, 1);
+    --bg-orange-hv: #D47D27;
     --i-borders-black:rgba(18, 18, 18, 1) ;
 
     // Transition
@@ -876,8 +877,11 @@ body{
                 font-weight: 500;
                 color: var(--text-secondary);
                 cursor: pointer;
-                width: fit-content;
+                width: 100%;
             }
+        }
+        .swiper-slide{
+            width: calc(20% - 8px);
         }
     }
 
@@ -902,7 +906,7 @@ body{
         padding: 0 #{fluid(20px, 52px, 375px, 1600px)};
         border: 2px solid var(--i-borders-black);
         background-color: var(--bg-orange-20);
-        transition: all 0.3s ease 0s; 
+        transition: all 0.3s ease 0s !important;
         img{
             width: 30px;
             height: 30px;
@@ -1207,14 +1211,21 @@ body{
         border-radius: 10px;
         font-weight: 700;
         font-size: #{fluid(14px, 20px, 375px, 1600px)};
+        transition: all 0.3s ease 0s;
         &.subscribe{
             background-color: var(--text-gray-2);
+            &:hover{
+                background-color: var(--text-gray);
+            }
             @include tablet(){
                 display: none;
             }
         }
         &.read{
             background-color: var(--bg-orange);
+        }
+        &:hover{
+            background-color: var(--bg-orange-hv);
         }
         @include small-tablet(){
             padding: 12px;
@@ -1313,6 +1324,10 @@ body{
         display: flex;
         justify-content:center;
         align-items: center;
+        transition: all 0.3s ease 0s;
+        &:hover{
+            background-color: var(--bg-orange-hv);
+        }
         @include small-tablet(){
             display: none;
         }
@@ -1415,6 +1430,10 @@ body{
     margin-bottom: 30px;
     width: fit-content;
     margin-left: auto;
+    transition: all 0.3s ease 0s;
+    &:hover{
+        background-color: var(--bg-orange-hv);
+    }
     @include small-tablet(){
         padding: 12px;
         margin-bottom: 20px;
@@ -1562,6 +1581,82 @@ body{
 }
 
 .estate{
+    &__filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: #{fluid(4px, 20px, 375px, 1600px)};
+        row-gap: 10px;
+        margin-bottom: 48px;
+        button{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
+            min-height: #{fluid(40px, 66px, 375px, 1600px)};
+            font-size: #{fluid(16px, 24px, 375px, 1600px)};
+            background-color: var(--bg-orange-20);
+            border-radius: 1000px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease 0s;
+            &:hover{
+                background-color: var(--bg-orange);
+            }
+            img{
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &__filter-type {
+    }
+
+    &__filter-rooms {
+        display: flex;
+        gap: #{fluid(4px, 20px, 375px, 1600px)};
+        flex-wrap: wrap;
+    }
+
+    &__filter-price {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
+        background-color: var(--bg-orange-20);
+        border-radius: 1000px;
+        min-height: #{fluid(40px, 66px, 375px, 1600px)};
+        font-size: #{fluid(16px, 24px, 375px, 1600px)};
+        color: var(--text-secondary);
+        font-weight: 500;
+        gap: 8px;
+    }
+
+    &__field {
+        input{
+            background-color: transparent;
+            border: 0;
+            color: var(--text-secondary);
+            outline: none;
+            width: 130px;
+            margin: 0 8px;
+            font-weight: 500;
+            border: 1px solid var(--bg-gray);
+            border-radius: 20px;
+            padding: 5px 15px;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+        }
+    }
+
+    &__filter-map {
+
+    }
+
+    &__filter-show {
+    }
+
     .news__button{
         padding: 16px 40px;
         @include small-tablet(){
@@ -1664,11 +1759,148 @@ body{
         text-wrap: nowrap;
     }
 
+    &__content{
+        display: flex;
+        gap: 80px;
+        margin-bottom: #{fluid(32px, 54px, 375px, 1600px)};
+        @include tablet(){
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    &__swipers{
+        flex: 0 1 65%;
+        .swiper-slide{
+            display: flex;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+            @include small-tablet(){
+                width: calc(90% - 8px);
+            }
+        }
+    }
+
+    &__swiper-1{
+        margin-bottom: 12px;
+    }
+
+    &__swiper-2{
+        .swiper-slide{
+            width: calc(23% - 8px);
+            @include tablet(){
+                width: calc(30% - 8px);
+            }
+        }
+        @include small-tablet(){
+            display: none !important;
+        }
+    }
+
+    &__contact{
+        h4{
+            font-size: #{fluid(16px, 20px, 375px, 1600px)};
+            margin-bottom: 16px;
+        }
+        div{
+            position: relative;
+            img{
+                position: absolute;
+                top: 12px;
+                right: 12px;
+            }
+            button{
+                min-height: 45px;
+                color: var(--text-secondary);
+                border-radius: 10px;
+                padding: 0 14px;
+                font-size: #{fluid(16px, 20px, 375px, 1600px)};
+                background-color: var(--bg-orange);
+                width: fit-content;
+                font-weight: 500;
+                transition: all 0.3s ease 0s;
+                &:hover{
+                    background-color: var(--bg-orange-hv);
+                }
+            }
+        }
+        .estate-page__buttons{
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+            @include small-tablet(){
+                gap: 4px;
+            }
+        }
+    }
+
+    &__textarea{
+        border: none;
+        resize: none;
+        outline: none;
+        width: 100%;
+        height: 150px;
+        padding: 12px 32px 12px 12px;
+        font-weight: 700;
+        font-size: #{fluid(16px, 20px, 375px, 1600px)};
+        color: #AFAFAF;
+        border-radius: 16px;
+        background-color: #EBEBEB;
+    }
+
+    &__buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 32px;
+        button{
+            min-height: 66px;
+            color: var(--text-secondary);
+            border-radius: 20px;
+            width: 100%;
+            font-weight: 700;
+            font-size: #{fluid(18px, 24px, 375px, 1600px)};
+            @include small-tablet(){
+                min-height: 52px;
+            }
+        }
+        @include small-tablet(){
+            margin-bottom: 16px;
+        }
+    }
+
+    &__show-number{
+        background-color: var(--bg-green);
+        transition: all 0.3s ease 0s;
+        &:hover{
+            background-color: #1eca00;
+        }
+    }
+
+    &__write{
+        background-color: var(--bg-orange);
+        transition: all 0.3s ease 0s;
+        &:hover{
+            background-color: var(--bg-orange-hv);
+        }
+    }
+
+    &__right{
+        flex: 0 1 35%;
+    }
+
     &__body {
+        display: grid;
+        gap: #{fluid(32px, 54px, 375px, 1600px)};
     }
 
     &__item {
-        &:not(:last-child) {margin-bottom: #{fluid(32px, 54px, 375px, 1600px)};};
+        
     }
 
     &__caption {
@@ -1682,6 +1914,7 @@ body{
         li{
             color: #AFAFAF;
             &:not(:last-child) {margin-bottom: 14px;};
+            font-weight: 400;
             span{
                 color: var(--text-main);
                 font-weight: 700;
@@ -1728,6 +1961,15 @@ body{
         font-size:#{fluid(16px, 20px, 375px, 1600px)};
         font-weight: 600;
         color: var(--bg-orange);
+        cursor: pointer;
+        &.active{
+            img{
+                transform: rotate(180deg);
+            }
+        }
+        img{
+            transition: all 0.3s ease 0s;
+        }
         @include small-tablet(){
             img{
                 width: 20px;
@@ -1736,9 +1978,22 @@ body{
     }
 
     &__map {
+        iframe{
+            border: 0;
+            width: 100%;
+            border-radius: 20px;
+            transition: all 0.3s ease 0s;
+            height: 0;
+        }
+        &.active{
+            iframe{
+                height: #{fluid(340px, 700px, 375px, 1600px)};
+            }
+        }
     }
 
     &__describe {
+        max-width: 900px;
     }
 
     &__similar {
