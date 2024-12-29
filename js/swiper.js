@@ -22,6 +22,15 @@ export const allSwiper = ()=>{
         },
     })
 
+    const carSwiper = new Swiper('.car-swiper',{
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        pagination: {
+            el: ".car-pagination",
+            type: "progressbar",
+        },
+    })
+
 
     let serviceSwiper = null
 
