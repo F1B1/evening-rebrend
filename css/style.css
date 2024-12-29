@@ -2178,12 +2178,22 @@ body::before {
     display: block;
   }
 }
+@media (max-width: 1024px) {
+  .car-catalog__column-big {
+    flex: 0 1 60%;
+  }
+}
 .car-catalog__column-small {
   flex: 0 1 30%;
 }
 .car-catalog__column-small .car-catalog__list {
   -moz-column-count: 1;
        column-count: 1;
+}
+@media (max-width: 1024px) {
+  .car-catalog__column-small {
+    flex: 0 1 40%;
+  }
 }
 @media (max-width: 768px) {
   .car-catalog__column {
@@ -2200,6 +2210,9 @@ body::before {
 .car-catalog__image {
   margin-bottom: 32px;
   display: flex;
+  height: 365px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .car-catalog__image img {
   width: 100%;
@@ -2210,6 +2223,9 @@ body::before {
 @media (max-width: 768px) {
   .car-catalog__image {
     margin-bottom: 8px;
+    height: unset;
+    aspect-ratio: 320/160;
+    max-height: 400px;
   }
 }
 .car-catalog__list {

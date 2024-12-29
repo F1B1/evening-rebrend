@@ -2373,11 +2373,17 @@ body{
                     display: block;
                 }
             }
+            @include tablet(){
+                flex: 0 1 60%;
+            }
         }
         &-small{
             flex: 0 1 30%;
             .car-catalog__list{
                 column-count: 1;
+            }
+            @include tablet(){
+                flex: 0 1 40%;
             }
         }
         @include small-tablet(){
@@ -2399,6 +2405,9 @@ body{
     &__image {
         margin-bottom: 32px;
         display: flex;
+        height: 365px;
+        border-radius: 20px;
+        overflow: hidden;
         img{
             width: 100%;
             height: 100%;
@@ -2406,6 +2415,9 @@ body{
         }
         @include small-tablet(){
             margin-bottom: 8px;
+            height: unset;
+            aspect-ratio: 320 / 160;
+            max-height: 400px;
         }
     }
 
