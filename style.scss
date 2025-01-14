@@ -681,6 +681,12 @@ svg {
         padding-top: 24px;
     }
 }
+.primary.section-controls{
+    padding-bottom: 32px;
+    @include small-tablet(){
+        padding-bottom: 24px;
+    }
+}
 .caption{
     font-size: #{fluid(30px, 50px, 375px, 1600px)};
     color: var(--text-secondary);
@@ -1050,13 +1056,7 @@ body{
             }
         }
         .swiper-slide{
-            width: calc(20% - 8px);
-            @include tablet(){
-                width: calc(30% - 8px);
-            }
-            @include small-tablet(){
-                width: calc(40% - 8px);
-            }
+            width: fit-content;
         }
     }
 
@@ -1078,7 +1078,7 @@ body{
         font-weight: 700;
         min-height: #{fluid(54px, 74px, 375px, 1600px)};
         border-radius: 1000px;
-        padding: 0 #{fluid(20px, 52px, 375px, 1600px)};
+        padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
         border: 2px solid var(--i-borders-black);
         background-color: var(--bg-orange-20);
         transition: all 0.3s ease 0s !important;
@@ -1369,6 +1369,11 @@ body{
             width: #{fluid(12px, 24px, 375px, 1600px)};
             height: #{fluid(12px, 24px, 375px, 1600px)};
         }
+    }
+
+    &__teg{
+        color: var(--bg-orange);
+        font-weight: 500;
     }
 
     &__buttons {
