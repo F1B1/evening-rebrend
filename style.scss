@@ -444,11 +444,11 @@ template {
     --text-gray: rgba(121, 121, 121, 1);
     --text-gray-2: rgba(206, 206, 206, 1);
     --text-gray-3: rgba(238, 238, 238, 1);
-    --bg-orange: rgba(255, 150, 44, 1);
-    --bg-orange-20: rgba(255, 150, 44, 0.2);
+    --bg-city: rgba(255, 150, 44, 1);
+    --bg-city-20: rgba(255, 150, 44, 0.2);
     --bg-green: rgba(84, 237, 57, 1);
     --bg-gray: rgba(238, 238, 238, 1);
-    --bg-orange-hv: #D47D27;
+    --bg-city-hv: #D47D27;
     --i-borders-black:rgba(18, 18, 18, 1) ;
 
     // Transition
@@ -486,10 +486,44 @@ template {
     transition: background var(--trans);
     padding-right: var(--scroll-width);
 
+    background-image: url('../img/city/chelyabinsk.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        z-index: -1;                                                                                                                                   
+      }
+
     @include mobile {
         font-weight: 400;
     }
 }
+
+
+.city__button[data-city="volgograd"] { --bg-city: #FF6347; } // Цвета для городов
+.city__button[data-city="perm"] { --bg-city: #4B0082; }
+.city__button[data-city="voronezh"] { --bg-city: #4682B4; }
+.city__button[data-city="omsk"] { --bg-city: #2E8B57; }
+.city__button[data-city="krasnodar"] { --bg-city: #FFD700; }
+.city__button[data-city="rostov"] { --bg-city: #DC143C; }
+.city__button[data-city="samara"] { --bg-city: #8A2BE2; }
+.city__button[data-city="nizhni novgorod"] { --bg-city: #FF4500; }
+.city__button[data-city="ekaterinburg"] { --bg-city: #228B22; }
+.city__button[data-city="novosibirsk"] { --bg-city: #008B8B; }
+.city__button[data-city="ufa"] { --bg-city: #FF69B4; }
+.city__button[data-city="kazan"] { --bg-city: #00CED1; }
+.city__button[data-city="spb"] { --bg-city: #483D8B; }
+.city__button[data-city="moscow"] { --bg-city: #A52A2A; }
+.city__button[data-city="shykmet"] { --bg-city: #B8860B; }
+.city__button[data-city="almata"] { --bg-city: #32CD32; }
+.city__button[data-city="astana"] { --bg-city: #20B2AA; }
 
 img {
     height: auto;
@@ -722,19 +756,19 @@ svg {
     }
 
     &__list {
-        border-top: 1px solid var(--bg-orange);
+        border-top: 1px solid var(--bg-city);
         padding-top: 22px;
         margin-top: 22px ;
         li{
             &:not(:last-child) {margin-bottom: 12px;};
             a{
                 display: flex;
-                color: var(--bg-orange);
+                color: var(--bg-city);
                 font-weight: 600;
                 font-size: 20px;
                 transition: all 0.3s ease 0s;
                 &:hover{
-                    color: var(--bg-orange-hv);
+                    color: var(--bg-city-hv);
                 }
             }
         }
@@ -748,14 +782,14 @@ svg {
     padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
     min-height: #{fluid(40px, 66px, 375px, 1600px)};
     font-size: #{fluid(16px, 24px, 375px, 1600px)};
-    background-color: var(--bg-orange-20);
+    background-color: var(--bg-city-20);
     border-radius: 1000px;
     color: var(--text-secondary);
     font-weight: 500;
     transition: all 0.3s ease 0s;
     gap: 8px;
     &:hover, &.active{
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
     }
 
 }
@@ -792,23 +826,6 @@ svg {
     &::after{
         transform: rotate(45deg);
     }
-}
-
-body{
-    background-image: url('../img/bg01.webp');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    &::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(10px);
-        z-index: -1;                                                                                                                                   
-      }
 }
 
 .mobile-footer-menu{
@@ -912,7 +929,7 @@ body{
                 span,
                 &::before,
                 &::after {
-                    background-color: var(--bg-orange);
+                    background-color: var(--bg-city);
                 }
             }
         }
@@ -924,7 +941,7 @@ body{
         border-radius: 1000px;
         overflow: hidden;
         justify-content: space-between;
-        background-color: var(--bg-orange-20);
+        background-color: var(--bg-city-20);
         @include small-tablet(){
             display: none;
             border-radius: 10px 10px 0 0;
@@ -948,7 +965,7 @@ body{
             filter: brightness(0) invert(1);
         }
         &:hover, &.active{
-            background-color: var(--bg-orange);
+            background-color: var(--bg-city);
         }
         &:last-child{
             display: none;
@@ -1042,6 +1059,8 @@ body{
         font-weight: 700;
         font-size: #{fluid(60px, 144px, 375px, 1600px)};
         margin-bottom: #{fluid(32px, 60px, 375px, 1600px)};
+        line-height: 1;
+        text-align: center;
     }
 
     &__controls{
@@ -1080,7 +1099,7 @@ body{
         border-radius: 1000px;
         padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
         border: 2px solid var(--i-borders-black);
-        background-color: var(--bg-orange-20);
+        background-color: var(--bg-city-20);
         transition: all 0.3s ease 0s !important;
         img{
             width: 30px;
@@ -1088,7 +1107,7 @@ body{
             margin-right: 16px;
         }
         &:hover{
-            background-color: var(--bg-orange);
+            background-color: var(--bg-city);
             border-color: transparent;
         }
         @include small-tablet{
@@ -1137,7 +1156,7 @@ body{
         padding-left: #{fluid(16px, 48px, 375px, 1600px)};
         transition: all 0.3s ease 0s;
         &:hover{
-            background-color: var(--bg-orange);
+            background-color: var(--bg-city);
             border-color: transparent;
             .service__item{
                 color: var(--text-secondary);
@@ -1180,7 +1199,7 @@ body{
             right: 0;
             top: 0;
             margin-top: 0;
-            background-color: var(--bg-orange);
+            background-color: var(--bg-city);
             border-radius: 50%;
             color: var(--text-secondary);
             width: 49px;
@@ -1338,8 +1357,8 @@ body{
             padding: 8px #{fluid(8px, 20px, 375px, 1600px)};
             font-size: 12px;
             font-weight: 700;
-            color: var(--bg-orange);
-            border: 1px solid var(--bg-orange);
+            color: var(--bg-city);
+            border: 1px solid var(--bg-city);
             border-radius: 6px;
         }
     }
@@ -1372,7 +1391,7 @@ body{
     }
 
     &__teg{
-        color: var(--bg-orange);
+        color: var(--bg-city);
         font-weight: 500;
     }
 
@@ -1402,10 +1421,10 @@ body{
             }
         }
         &.read{
-            background-color: var(--bg-orange);
+            background-color: var(--bg-city);
         }
         &:hover{
-            background-color: var(--bg-orange-hv);
+            background-color: var(--bg-city-hv);
         }
         @include small-tablet(){
             padding: 12px;
@@ -1495,7 +1514,7 @@ body{
     }
 
     &__subscribe {
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         color: var(--text-secondary);
         border-radius: 10px;
         padding: 16px;
@@ -1506,7 +1525,7 @@ body{
         align-items: center;
         transition: all 0.3s ease 0s;
         &:hover{
-            background-color: var(--bg-orange-hv);
+            background-color: var(--bg-city-hv);
         }
         @include small-tablet(){
             display: none;
@@ -1598,7 +1617,7 @@ body{
 }
 
 .page-back {
-    background-color: var(--bg-orange);
+    background-color: var(--bg-city);
     color: var(--text-secondary);
     border-radius: 10px;
     padding: 16px;
@@ -1613,7 +1632,7 @@ body{
     margin-left: auto;
     transition: all 0.3s ease 0s;
     &:hover{
-        background-color: var(--bg-orange-hv);
+        background-color: var(--bg-city-hv);
     }
     @include small-tablet(){
         padding: 12px;
@@ -1684,7 +1703,7 @@ body{
     }
 
     &__button {
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         width: 43px;
         height: 43px;
         border-radius: 10px;
@@ -1780,7 +1799,7 @@ body{
                 border: 1px solid var(--text-main);
                 &:hover{
                     color: var(--text-secondary);
-                    background-color: var(--bg-orange);
+                    background-color: var(--bg-city);
                     img{
                         filter: brightness(1);
                     }
@@ -1807,7 +1826,7 @@ body{
         justify-content:center;
         align-items: center;
         padding: 0 #{fluid(22px, 52px, 375px, 1600px)};
-        background-color: var(--bg-orange-20);
+        background-color: var(--bg-city-20);
         border-radius: 1000px;
         min-height: #{fluid(40px, 66px, 375px, 1600px)};
         font-size: #{fluid(16px, 24px, 375px, 1600px)};
@@ -1885,13 +1904,13 @@ body{
         padding: 16px;
         font-weight: 700;
         font-size: #{fluid(16px, 24px, 375px, 1600px)};
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         border-radius: 10px;
     }
 
     &__reviews {
         font-size: #{fluid(14px, 24px, 375px, 1600px)};
-        color: var(--bg-orange);
+        color: var(--bg-city);
     }
 
     &__top {
@@ -1922,12 +1941,12 @@ body{
 
     &__button {
         padding: 9px;
-        border: 1px solid var(--bg-orange);
+        border: 1px solid var(--bg-city);
         display: flex;
         align-items:center;
         justify-content: center;
         border-radius: 6px;
-        color: var(--bg-orange);
+        color: var(--bg-city);
         font-weight: 700;
         font-size: #{fluid(10px, 12px, 375px, 1600px)};
         gap: 6px;
@@ -1943,7 +1962,7 @@ body{
         padding: #{fluid(10px, 16px, 375px, 1600px)};
         font-weight: 700;
         font-size: #{fluid(18px, 24px, 375px, 1600px)};
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         border-radius: 10px;
         text-wrap: nowrap;
     }
@@ -2008,12 +2027,12 @@ body{
                 border-radius: 10px;
                 padding: 0 14px;
                 font-size: #{fluid(16px, 20px, 375px, 1600px)};
-                background-color: var(--bg-orange);
+                background-color: var(--bg-city);
                 width: fit-content;
                 font-weight: 500;
                 transition: all 0.3s ease 0s;
                 &:hover{
-                    background-color: var(--bg-orange-hv);
+                    background-color: var(--bg-city-hv);
                 }
             }
         }
@@ -2073,10 +2092,10 @@ body{
     }
 
     &__write{
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         transition: all 0.3s ease 0s;
         &:hover{
-            background-color: var(--bg-orange-hv);
+            background-color: var(--bg-city-hv);
         }
     }
 
@@ -2150,7 +2169,7 @@ body{
         gap: 6px;
         font-size:#{fluid(16px, 20px, 375px, 1600px)};
         font-weight: 600;
-        color: var(--bg-orange);
+        color: var(--bg-city);
         cursor: pointer;
         &.active{
             img{
@@ -2280,13 +2299,13 @@ body{
     }
 
     &__show-all {
-        color: var(--bg-orange);
+        color: var(--bg-city);
         font-weight: 700;
         line-height: 1;
         font-size: #{fluid(30px, 50px, 375px, 1600px)};
         transition: all 0.3s ease 0s;
         &:hover{
-            color: var(--bg-orange-hv);
+            color: var(--bg-city-hv);
         }
         @include small-tablet(){
             display: none;
@@ -2312,7 +2331,7 @@ body{
                 text-wrap: nowrap;
             }
             &:hover{
-                color: var(--bg-orange);
+                color: var(--bg-city);
             }
         }
         @include small-tablet(){
@@ -2435,7 +2454,7 @@ body{
                 transition: all 0.3s ease 0s;
                 font-size: #{fluid(16px, 20px, 375px, 1600px)};
                 &:hover{
-                    color: var(--bg-orange);
+                    color: var(--bg-city);
                 }
             }
             @include small-tablet(){
@@ -2454,8 +2473,8 @@ body{
         align-items:center;
         width: 100%;
         div{
-            color: var(--bg-orange);
-            border: 1px solid var(--bg-orange);
+            color: var(--bg-city);
+            border: 1px solid var(--bg-city);
             border-radius: 6px;
             padding: 9px;
         }
@@ -2562,7 +2581,7 @@ body{
     }
 
     &__price {
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         padding: #{fluid(8px, 16px, 375px, 1600px)};
         border-radius: 10px;
         width: fit-content;
@@ -2594,7 +2613,7 @@ body{
         }
         .car__filter button{
             &:hover{
-                color: var(--bg-orange);
+                color: var(--bg-city);
             }
         }
     }
@@ -2678,19 +2697,19 @@ body{
     }
 
     &__list {
-        border-top: 1px solid var(--bg-orange);
+        border-top: 1px solid var(--bg-city);
         padding-top: #{fluid(14px, 22px, 375px, 1600px)};
         margin-top: #{fluid(14px, 22px, 375px, 1600px)};
         li{
             &:not(:last-child) {margin-bottom: #{fluid(6px, 12px, 375px, 1600px)};};
             a{
                 display: flex;
-                color: var(--bg-orange);
+                color: var(--bg-city);
                 font-weight: 600;
                 font-size: #{fluid(16px, 20px, 375px, 1600px)};
                 transition: all 0.3s ease 0s;
                 &:hover{
-                    color: var(--bg-orange-hv);
+                    color: var(--bg-city-hv);
                 }
             }
         }
@@ -2703,7 +2722,7 @@ body{
     &__controls {
         display: flex;
         gap: #{fluid(32px, 90px, 768px, 1600px)};
-        border-bottom: 1px solid var(--bg-orange);
+        border-bottom: 1px solid var(--bg-city);
         margin-bottom:  #{fluid(32px, 64px, 375px, 1600px)};
     }
 
@@ -2714,7 +2733,7 @@ body{
         transition: all 0.3s ease 0s;
         position: relative;
         &.active, &:hover{
-            color: var(--bg-orange);
+            color: var(--bg-city);
         }
         &.active{
             &::after{
@@ -2724,7 +2743,7 @@ body{
                 position: absolute;
                 bottom: -2px;
                 left: 0;
-                background-color: var(--bg-orange);
+                background-color: var(--bg-city);
                 transition: all 0.3s ease 0s;
             }
         }
@@ -2780,7 +2799,7 @@ body{
     &__approve {
         font-size: #{fluid(16px, 20px, 375px, 1600px)};
         font-weight: 600;
-        background-color: var(--bg-orange);
+        background-color: var(--bg-city);
         padding: #{fluid(6px, 9px, 375px, 1600px)};
         color: var(--text-secondary);
         border-radius: 10px;

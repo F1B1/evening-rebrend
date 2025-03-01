@@ -352,11 +352,11 @@ template {
   --text-gray: rgba(121, 121, 121, 1);
   --text-gray-2: rgba(206, 206, 206, 1);
   --text-gray-3: rgba(238, 238, 238, 1);
-  --bg-orange: rgba(255, 150, 44, 1);
-  --bg-orange-20: rgba(255, 150, 44, 0.2);
+  --bg-city: rgba(255, 150, 44, 1);
+  --bg-city-20: rgba(255, 150, 44, 0.2);
   --bg-green: rgba(84, 237, 57, 1);
   --bg-gray: rgba(238, 238, 238, 1);
-  --bg-orange-hv: #D47D27;
+  --bg-city-hv: #D47D27;
   --i-borders-black:rgba(18, 18, 18, 1) ;
   --trans: 0.25s ease-out;
   --trans-second: 0.3s ease-in-out;
@@ -390,11 +390,94 @@ template {
   background-color: var(--light);
   transition: background var(--trans);
   padding-right: var(--scroll-width);
+  background-image: url("../img/city/chelyabinsk.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.page__body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: -1;
 }
 @media (max-width: 576px) {
   .page__body {
     font-weight: 400;
   }
+}
+
+.city__button[data-city=volgograd] {
+  --bg-city: #FF6347;
+}
+
+.city__button[data-city=perm] {
+  --bg-city: #4B0082;
+}
+
+.city__button[data-city=voronezh] {
+  --bg-city: #4682B4;
+}
+
+.city__button[data-city=omsk] {
+  --bg-city: #2E8B57;
+}
+
+.city__button[data-city=krasnodar] {
+  --bg-city: #FFD700;
+}
+
+.city__button[data-city=rostov] {
+  --bg-city: #DC143C;
+}
+
+.city__button[data-city=samara] {
+  --bg-city: #8A2BE2;
+}
+
+.city__button[data-city="nizhni novgorod"] {
+  --bg-city: #FF4500;
+}
+
+.city__button[data-city=ekaterinburg] {
+  --bg-city: #228B22;
+}
+
+.city__button[data-city=novosibirsk] {
+  --bg-city: #008B8B;
+}
+
+.city__button[data-city=ufa] {
+  --bg-city: #FF69B4;
+}
+
+.city__button[data-city=kazan] {
+  --bg-city: #00CED1;
+}
+
+.city__button[data-city=spb] {
+  --bg-city: #483D8B;
+}
+
+.city__button[data-city=moscow] {
+  --bg-city: #A52A2A;
+}
+
+.city__button[data-city=shykmet] {
+  --bg-city: #B8860B;
+}
+
+.city__button[data-city=almata] {
+  --bg-city: #32CD32;
+}
+
+.city__button[data-city=astana] {
+  --bg-city: #20B2AA;
 }
 
 img {
@@ -635,7 +718,7 @@ svg {
   color: #afafaf;
 }
 .sub-menu__list {
-  border-top: 1px solid var(--bg-orange);
+  border-top: 1px solid var(--bg-city);
   padding-top: 22px;
   margin-top: 22px;
 }
@@ -644,13 +727,13 @@ svg {
 }
 .sub-menu__list li a {
   display: flex;
-  color: var(--bg-orange);
+  color: var(--bg-city);
   font-weight: 600;
   font-size: 20px;
   transition: all 0.3s ease 0s;
 }
 .sub-menu__list li a:hover {
-  color: var(--bg-orange-hv);
+  color: var(--bg-city-hv);
 }
 
 .btn {
@@ -660,7 +743,7 @@ svg {
   padding: 0 clamp(1.375rem, 2.4489795918vw + 0.8010204082rem, 3.25rem);
   min-height: clamp(2.5rem, 2.1224489796vw + 2.0025510204rem, 4.125rem);
   font-size: clamp(1rem, 0.6530612245vw + 0.8469387755rem, 1.5rem);
-  background-color: var(--bg-orange-20);
+  background-color: var(--bg-city-20);
   border-radius: 1000px;
   color: var(--text-secondary);
   font-weight: 500;
@@ -668,7 +751,7 @@ svg {
   gap: 8px;
 }
 .btn:hover, .btn.active {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
 }
 
 .filter__close {
@@ -703,24 +786,6 @@ svg {
 }
 .filter__close::after {
   transform: rotate(45deg);
-}
-
-body {
-  background-image: url("../img/bg01.webp");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  z-index: -1;
 }
 
 .mobile-footer-menu {
@@ -824,7 +889,7 @@ body::before {
     transform: translate(-50%);
   }
   .header__filter.active span, .header__filter.active::before, .header__filter.active::after {
-    background-color: var(--bg-orange);
+    background-color: var(--bg-city);
   }
 }
 .header__list {
@@ -833,7 +898,7 @@ body::before {
   border-radius: 1000px;
   overflow: hidden;
   justify-content: space-between;
-  background-color: var(--bg-orange-20);
+  background-color: var(--bg-city-20);
 }
 @media (max-width: 768px) {
   .header__list {
@@ -860,7 +925,7 @@ body::before {
   filter: brightness(0) invert(1);
 }
 .header__item:hover, .header__item.active {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
 }
 .header__item:last-child {
   display: none;
@@ -953,6 +1018,8 @@ body::before {
   font-weight: 700;
   font-size: clamp(3.75rem, 6.8571428571vw + 2.1428571429rem, 9rem);
   margin-bottom: clamp(2rem, 2.2857142857vw + 1.4642857143rem, 3.75rem);
+  line-height: 1;
+  text-align: center;
 }
 .primary__controls .swiper-wrapper {
   display: flex;
@@ -989,7 +1056,7 @@ body::before {
   border-radius: 1000px;
   padding: 0 clamp(1.375rem, 2.4489795918vw + 0.8010204082rem, 3.25rem);
   border: 2px solid var(--i-borders-black);
-  background-color: var(--bg-orange-20);
+  background-color: var(--bg-city-20);
   transition: all 0.3s ease 0s !important;
 }
 .primary__button img {
@@ -998,7 +1065,7 @@ body::before {
   margin-right: 16px;
 }
 .primary__button:hover {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   border-color: transparent;
 }
 @media (max-width: 768px) {
@@ -1046,7 +1113,7 @@ body::before {
   transition: all 0.3s ease 0s;
 }
 .service__column:hover {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   border-color: transparent;
 }
 .service__column:hover .service__item {
@@ -1087,7 +1154,7 @@ body::before {
   right: 0;
   top: 0;
   margin-top: 0;
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   border-radius: 50%;
   color: var(--text-secondary);
   width: 49px;
@@ -1245,8 +1312,8 @@ body::before {
   padding: 8px clamp(0.5rem, 0.9795918367vw + 0.2704081633rem, 1.25rem);
   font-size: 12px;
   font-weight: 700;
-  color: var(--bg-orange);
-  border: 1px solid var(--bg-orange);
+  color: var(--bg-city);
+  border: 1px solid var(--bg-city);
   border-radius: 6px;
 }
 .news__info {
@@ -1274,7 +1341,7 @@ body::before {
   height: clamp(0.75rem, 0.9795918367vw + 0.5204081633rem, 1.5rem);
 }
 .news__teg {
-  color: var(--bg-orange);
+  color: var(--bg-city);
   font-weight: 500;
 }
 .news__buttons {
@@ -1305,10 +1372,10 @@ body::before {
   }
 }
 .news__button.read {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
 }
 .news__button:hover {
-  background-color: var(--bg-orange-hv);
+  background-color: var(--bg-city-hv);
 }
 @media (max-width: 768px) {
   .news__button {
@@ -1385,7 +1452,7 @@ body::before {
   padding-bottom: 10px;
 }
 .news-page__subscribe {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   color: var(--text-secondary);
   border-radius: 10px;
   padding: 16px;
@@ -1397,7 +1464,7 @@ body::before {
   transition: all 0.3s ease 0s;
 }
 .news-page__subscribe:hover {
-  background-color: var(--bg-orange-hv);
+  background-color: var(--bg-city-hv);
 }
 @media (max-width: 768px) {
   .news-page__subscribe {
@@ -1475,7 +1542,7 @@ body::before {
   }
 }
 .page-back {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   color: var(--text-secondary);
   border-radius: 10px;
   padding: 16px;
@@ -1492,7 +1559,7 @@ body::before {
   transition: all 0.3s ease 0s;
 }
 .page-back:hover {
-  background-color: var(--bg-orange-hv);
+  background-color: var(--bg-city-hv);
 }
 @media (max-width: 768px) {
   .page-back {
@@ -1545,7 +1612,7 @@ body::before {
   gap: 12px;
 }
 .news-comment__button {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   width: 43px;
   height: 43px;
   border-radius: 10px;
@@ -1638,7 +1705,7 @@ body::before {
   }
   .estate__filter-body .estate__filter-price:hover {
     color: var(--text-secondary);
-    background-color: var(--bg-orange);
+    background-color: var(--bg-city);
   }
   .estate__filter-body .estate__filter-price:hover img {
     filter: brightness(1);
@@ -1658,7 +1725,7 @@ body::before {
   justify-content: center;
   align-items: center;
   padding: 0 clamp(1.375rem, 2.4489795918vw + 0.8010204082rem, 3.25rem);
-  background-color: var(--bg-orange-20);
+  background-color: var(--bg-city-20);
   border-radius: 1000px;
   min-height: clamp(2.5rem, 2.1224489796vw + 2.0025510204rem, 4.125rem);
   font-size: clamp(1rem, 0.6530612245vw + 0.8469387755rem, 1.5rem);
@@ -1717,12 +1784,12 @@ body::before {
   padding: 16px;
   font-weight: 700;
   font-size: clamp(1rem, 0.6530612245vw + 0.8469387755rem, 1.5rem);
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   border-radius: 10px;
 }
 .estate-page__reviews {
   font-size: clamp(0.875rem, 0.8163265306vw + 0.6836734694rem, 1.5rem);
-  color: var(--bg-orange);
+  color: var(--bg-city);
 }
 .estate-page__top {
   display: flex;
@@ -1748,12 +1815,12 @@ body::before {
 }
 .estate-page__button {
   padding: 9px;
-  border: 1px solid var(--bg-orange);
+  border: 1px solid var(--bg-city);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  color: var(--bg-orange);
+  color: var(--bg-city);
   font-weight: 700;
   font-size: clamp(0.625rem, 0.1632653061vw + 0.5867346939rem, 0.75rem);
   gap: 6px;
@@ -1768,7 +1835,7 @@ body::before {
   padding: clamp(0.625rem, 0.4897959184vw + 0.5102040816rem, 1rem);
   font-weight: 700;
   font-size: clamp(1.125rem, 0.4897959184vw + 1.0102040816rem, 1.5rem);
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   border-radius: 10px;
   text-wrap: nowrap;
 }
@@ -1835,14 +1902,14 @@ body::before {
   border-radius: 10px;
   padding: 0 14px;
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   width: -moz-fit-content;
   width: fit-content;
   font-weight: 500;
   transition: all 0.3s ease 0s;
 }
 .estate-page__contact div button:hover {
-  background-color: var(--bg-orange-hv);
+  background-color: var(--bg-city-hv);
 }
 .estate-page__contact .estate-page__buttons {
   flex-direction: row;
@@ -1900,11 +1967,11 @@ body::before {
   background-color: #1eca00;
 }
 .estate-page__write {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   transition: all 0.3s ease 0s;
 }
 .estate-page__write:hover {
-  background-color: var(--bg-orange-hv);
+  background-color: var(--bg-city-hv);
 }
 .estate-page__right {
   flex: 0 1 35%;
@@ -1971,7 +2038,7 @@ body::before {
   gap: 6px;
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
   font-weight: 600;
-  color: var(--bg-orange);
+  color: var(--bg-city);
   cursor: pointer;
 }
 .estate-page__open.active img {
@@ -2075,14 +2142,14 @@ body::before {
   font-size: clamp(1.875rem, 1.6326530612vw + 1.4923469388rem, 3.125rem);
 }
 .car__show-all {
-  color: var(--bg-orange);
+  color: var(--bg-city);
   font-weight: 700;
   line-height: 1;
   font-size: clamp(1.875rem, 1.6326530612vw + 1.4923469388rem, 3.125rem);
   transition: all 0.3s ease 0s;
 }
 .car__show-all:hover {
-  color: var(--bg-orange-hv);
+  color: var(--bg-city-hv);
 }
 @media (max-width: 768px) {
   .car__show-all {
@@ -2111,7 +2178,7 @@ body::before {
   text-wrap: nowrap;
 }
 .car__filter button:hover {
-  color: var(--bg-orange);
+  color: var(--bg-city);
 }
 @media (max-width: 768px) {
   .car__filter {
@@ -2245,7 +2312,7 @@ body::before {
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
 }
 .car-catalog__list li a:hover {
-  color: var(--bg-orange);
+  color: var(--bg-city);
 }
 @media (max-width: 768px) {
   .car-catalog__list li {
@@ -2263,8 +2330,8 @@ body::before {
   width: 100%;
 }
 .car-catalog .news__caption div {
-  color: var(--bg-orange);
-  border: 1px solid var(--bg-orange);
+  color: var(--bg-city);
+  border: 1px solid var(--bg-city);
   border-radius: 6px;
   padding: 9px;
 }
@@ -2370,7 +2437,7 @@ body::before {
   }
 }
 .car-category__price {
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   padding: clamp(0.5rem, 0.6530612245vw + 0.3469387755rem, 1rem);
   border-radius: 10px;
   width: -moz-fit-content;
@@ -2402,7 +2469,7 @@ body::before {
   color: var(--text-main);
 }
 .car-category .car__brand .car__filter button:hover {
-  color: var(--bg-orange);
+  color: var(--bg-city);
 }
 
 .car-page .estate-page__similar {
@@ -2473,7 +2540,7 @@ body::before {
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
 }
 .account__list {
-  border-top: 1px solid var(--bg-orange);
+  border-top: 1px solid var(--bg-city);
   padding-top: clamp(0.875rem, 0.6530612245vw + 0.7219387755rem, 1.375rem);
   margin-top: clamp(0.875rem, 0.6530612245vw + 0.7219387755rem, 1.375rem);
 }
@@ -2482,13 +2549,13 @@ body::before {
 }
 .account__list li a {
   display: flex;
-  color: var(--bg-orange);
+  color: var(--bg-city);
   font-weight: 600;
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
   transition: all 0.3s ease 0s;
 }
 .account__list li a:hover {
-  color: var(--bg-orange-hv);
+  color: var(--bg-city-hv);
 }
 .account__body {
   width: 100%;
@@ -2496,7 +2563,7 @@ body::before {
 .account__controls {
   display: flex;
   gap: clamp(2rem, 6.9711538462vw + -1.3461538462rem, 5.625rem);
-  border-bottom: 1px solid var(--bg-orange);
+  border-bottom: 1px solid var(--bg-city);
   margin-bottom: clamp(2rem, 2.612244898vw + 1.387755102rem, 4rem);
 }
 .account__btn {
@@ -2507,7 +2574,7 @@ body::before {
   position: relative;
 }
 .account__btn.active, .account__btn:hover {
-  color: var(--bg-orange);
+  color: var(--bg-city);
 }
 .account__btn.active::after {
   content: "";
@@ -2516,7 +2583,7 @@ body::before {
   position: absolute;
   bottom: -2px;
   left: 0;
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   transition: all 0.3s ease 0s;
 }
 .account__item {
@@ -2562,7 +2629,7 @@ body::before {
 .account__approve {
   font-size: clamp(1rem, 0.3265306122vw + 0.9234693878rem, 1.25rem);
   font-weight: 600;
-  background-color: var(--bg-orange);
+  background-color: var(--bg-city);
   padding: clamp(0.375rem, 0.2448979592vw + 0.3176020408rem, 0.5625rem);
   color: var(--text-secondary);
   border-radius: 10px;
