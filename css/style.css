@@ -29,6 +29,9 @@ main {
   display: block;
   padding-bottom: 90px;
 }
+main.pd0 {
+  padding-bottom: 0;
+}
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -555,6 +558,40 @@ svg {
   display: none;
 }
 
+.input {
+  width: 100%;
+}
+.input input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: clamp(1rem, 0.6530612245vw + 0.8469387755rem, 1.5rem);
+  width: 100%;
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease 0s;
+}
+.input input::-moz-placeholder {
+  color: var(--text-gray);
+  opacity: 1;
+}
+.input input::placeholder {
+  color: var(--text-gray);
+  opacity: 1;
+}
+.input input:hover {
+  border-color: var(--text-gray);
+}
+.input input:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -574,6 +611,11 @@ svg {
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    padding: 0 8px;
   }
 }
 
@@ -2694,4 +2736,45 @@ svg {
 .account__small-img img {
   width: clamp(1.25rem, 1.4693877551vw + 0.9056122449rem, 2.375rem);
   height: clamp(1.25rem, 1.4693877551vw + 0.9056122449rem, 2.375rem);
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login__container {
+  width: 100%;
+}
+.login__body {
+  margin: 0px auto;
+  border-radius: 40px;
+  background-color: var(--bg-gray);
+  border: 1px solid var(--i-borders-black);
+  padding: 48px clamp(1rem, 2.612244898vw + 0.387755102rem, 3rem);
+  max-width: 640px;
+}
+@media (max-width: 768px) {
+  .login__body {
+    border-radius: 20px;
+  }
+}
+.login__title {
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 0.3265306122vw + 1.4234693878rem, 1.75rem);
+  margin-bottom: clamp(1.5rem, 0.6530612245vw + 1.3469387755rem, 2rem);
+}
+.login__input {
+  display: flex;
+  margin-bottom: 16px;
+}
+.login__button {
+  margin-top: 24px;
+  background-color: var(--bg-city);
+}
+.login__button:hover {
+  background-color: var(--bg-city-hv);
 }
